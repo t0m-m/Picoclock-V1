@@ -10,6 +10,6 @@ There is no on-board battery, so the unit must be connected to external power su
 * Date Mode
 * Alarm Mode
 # Hardware
-I am designing the board in Altium Designer, on two layer PCB, as shown below.
+I am designing the board in Altium Designer, on two layer PCB, as shown below. The unit is also equipped with 4 3M holes to attach a plexi sheet or to mount the unit.
 
 <img width="1191" height="854" alt="image" src="https://github.com/user-attachments/assets/4700bce0-9bb0-45bb-b0e3-9fe3e62a1f71" />
