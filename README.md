@@ -2,7 +2,7 @@
 Simple little desktop clock based on Raspberry Pi Pico on custom PCB
 # Information
 This version of the clock is only made for testing purposes. The final version will feature vintage V!B-71 7 segment displays. However everything else apart from the displays is the same and will be featured in the final version. 
-On board is DS3231 RTC chip, as well as a buzzer and 4 buttons for controls, such as brightness, confirm, cancel and mode. 
+On board is DS3231 RTC chip, MAX7221 that is used as display driver as well as a buzzer and 4 buttons for controls, such as brightness, confirm, cancel and mode. 
 
 There is no on-board battery, so the unit must be connected to external power supply using Pico's micro USB port. The final version may feature Li-on pack however.
 # Implemented features
