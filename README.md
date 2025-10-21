@@ -11,4 +11,5 @@ There is no on-board battery, so the unit must be connected to external power su
 * Alarm Mode
 # Hardware
 I am designing the board in Altium Designer, on two layer PCB, as shown below.
+
 <img width="1191" height="854" alt="image" src="https://github.com/user-attachments/assets/4700bce0-9bb0-45bb-b0e3-9fe3e62a1f71" />
