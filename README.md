@@ -12,5 +12,6 @@ There is no on-board battery, so the unit must be connected to external power su
 # Hardware
 I wanted the board to be 2 layers, but during the designing, i added 2 more layers for better routing of the signals. The unit is also equipped with 4 3M holes to attach a plexi sheet or to mount the unit.
 
-<img width="1300" height="929" alt="image" src="https://github.com/user-attachments/assets/22e20af5-4212-40db-93ff-8c17da617ae4" />
+<img width="1408" height="1026" alt="image" src="https://github.com/user-attachments/assets/c7c8651d-e4ba-4494-9a38-49d9c36d8359" />
+
 
