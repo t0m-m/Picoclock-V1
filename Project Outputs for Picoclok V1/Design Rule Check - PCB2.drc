@@ -1,0 +1,84 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Public\Documents\Altium\Picoclok V1\PCB2.PcbDoc
+Date     : 27/10/2025
+Time     : 8:55:44 PM
+
+Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('9')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=50mil) (Preferred=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Routing Layers(All)
+Rule Violations :0
+
+Processing Rule : Routing Via (MinHoleWidth=10mil) (MaxHoleWidth=200mil) (PreferredHoleWidth=100mil) (MinWidth=20mil) (MaxWidth=250mil) (PreferedWidth=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Differential Pairs Uncoupled Length using the Gap Constraints (Min=10mil) (Max=10mil) (Prefered=10mil)  and Width Constraints (Min=15mil) (Max=15mil) (Prefered=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Pads and Vias to follow the Drill pairs settings
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 10mil, Vertical Gap = 10mil ) (All),(All) 
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Waived Violation between Hole Size Constraint: (125.984mil > 100mil) Pad H1-10(5105mil,1830mil) on Multi-Layer Actual Hole Size = 125.984milWaived by Tomasz Majerowicz at 27/10/2025 8:54:09 PM
+   Waived Violation between Hole Size Constraint: (125.984mil > 100mil) Pad H2-10(5105mil,4595mil) on Multi-Layer Actual Hole Size = 125.984milWaived by Tomasz Majerowicz at 27/10/2025 8:54:12 PM
+   Waived Violation between Hole Size Constraint: (125.984mil > 100mil) Pad H3-10(1180mil,4595mil) on Multi-Layer Actual Hole Size = 125.984milWaived by Tomasz Majerowicz at 27/10/2025 8:54:15 PM
+   Waived Violation between Hole Size Constraint: (125.984mil > 100mil) Pad H4-10(1180mil,1830mil) on Multi-Layer Actual Hole Size = 125.984milWaived by Tomasz Majerowicz at 27/10/2025 8:54:18 PM
+Waived Violations :4
+
+Waived Violations Of Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (4.598mil < 10mil) Between Pad C2-1(4022.795mil,3387.352mil) on Top Layer And Pad C2-2(4022.795mil,3423.573mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]Waived by Tomasz Majerowicz at 27/10/2025 8:55:02 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (5.779mil < 10mil) Between Pad R1-1(3848.347mil,2190mil) on Top Layer And Pad R1-2(3891.653mil,2190mil) on Top Layer [Top Solder] Mask Sliver [5.779mil]Waived by Tomasz Majerowicz at 27/10/2025 8:55:05 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (5.779mil < 10mil) Between Pad R2-1(3360mil,2371.653mil) on Top Layer And Pad R2-2(3360mil,2328.347mil) on Top Layer [Top Solder] Mask Sliver [5.779mil]Waived by Tomasz Majerowicz at 27/10/2025 8:55:07 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (4.205mil < 10mil) Between Pad R3-1(4125mil,3422.126mil) on Top Layer And Pad R3-2(4125mil,3387.874mil) on Top Layer [Top Solder] Mask Sliver [4.205mil]Waived by Tomasz Majerowicz at 27/10/2025 8:55:10 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (5.779mil < 10mil) Between Pad R4-1(3223.347mil,3425mil) on Top Layer And Pad R4-2(3266.653mil,3425mil) on Top Layer [Top Solder] Mask Sliver [5.779mil]Waived by Tomasz Majerowicz at 27/10/2025 8:55:12 PM
+Waived Violations :5
+
+
+Violations Detected : 0
+Waived Violations : 9
+Time Elapsed        : 00:00:00
