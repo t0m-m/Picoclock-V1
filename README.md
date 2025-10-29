@@ -1,18 +1,44 @@
-# Picoclock-V1
-Simple little desktop clock based on Raspberry Pi Pico on custom PCB
-# Information
-This version of the clock is only made for testing purposes. The final version will feature vintage VQB-71 7 segment displays. However everything else apart from the displays is the same and will be featured in the final version. 
-On board is DS3231 RTC chip, MAX7221 that is used as display driver as well as a buzzer and 4 buttons for controls, such as brightness, confirm, cancel and mode. 
+🕒 Picoclock-V1
 
-There is no on-board battery, so the unit must be connected to external power supply using Pico's micro USB port. The final version may feature Li-on pack however.
-# Implemented features
-* Time Keeping
-* Date Mode
-* Alarm Mode
-# Hardware
-I wanted the board to be 2 layers, but during the designing, i added 2 more layers for better routing of the signals. The unit is also equipped with 4 3M holes to attach a plexi sheet or to mount the unit.
+A simple desktop clock built around the Raspberry Pi Pico and a custom PCB.
 
-<img width="1608" height="1177" alt="image" src="https://github.com/user-attachments/assets/3863fd22-7e8e-4473-bf3b-560fbc2c2f99" />
+📖 Overview
+
+Picoclock-V1 is an experimental prototype designed for testing and feature validation.
+The final version will showcase vintage VQB-71 7-segment displays, but all other components and circuitry will remain the same.
+
+The board includes:
+
+DS3231 high-accuracy real-time clock
+
+MAX7221 display driver
+
+Buzzer for alarm/notifications
+
+Four control buttons for brightness, confirm, cancel, and mode selection
+
+Currently, the unit does not include an onboard battery and requires external power via the Pico’s micro-USB port.
+A future revision may include a Li-ion battery pack for standalone operation.
+
+⚙️ Implemented Features
+
+⏰ Time keeping
+
+📅 Date display mode
+
+🔔 Alarm mode
+
+🧩 Hardware
+
+Initially planned as a 2-layer PCB, the design evolved into a 4-layer board for cleaner signal routing and improved performance.
+The board also includes four 3 mm mounting holes for attaching a plexiglass cover or securing the unit in place.
+
+💡 Notes
+
+This version focuses on functionality and layout validation. The next iteration will aim for improved aesthetics, enclosure design, and power management.
+
+<img width="1130" height="826" alt="image" src="https://github.com/user-attachments/assets/bcbfce3e-b764-48f1-a3e7-6132815e0f48" />
+
 
 
 
