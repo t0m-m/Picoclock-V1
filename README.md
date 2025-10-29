@@ -1,8 +1,8 @@
-#🕒 Picoclock-V1
+🕒 Picoclock-V1
 
 A simple desktop clock built around the Raspberry Pi Pico and a custom PCB.
 
-#📖 Overview
+📖 Overview
 
 Picoclock-V1 is an experimental prototype designed for testing and feature validation.
 The final version will showcase vintage VQB-71 7-segment displays, but all other components and circuitry will remain the same.
@@ -28,7 +28,7 @@ A future revision may include a Li-ion battery pack for standalone operation.
 
 🔔 Alarm mode
 
-#🧩 Hardware
+🧩 Hardware
 
 Initially planned as a 2-layer PCB, the design evolved into a 4-layer board for cleaner signal routing and improved performance.
 The board also includes four 3 mm mounting holes for attaching a plexiglass cover or securing the unit in place.
