@@ -1,6 +1,6 @@
 # Picoclock-V1
 
-A simple desktop clock built around the Raspberry Pi Pico and a custom PCB.
+simple desktop clock built around the Raspberry Pi Pico and a custom PCB.
 
 # Overview
 
