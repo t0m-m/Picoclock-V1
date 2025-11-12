@@ -39,6 +39,11 @@ This version focuses on functionality and layout validation. The next iteration 
 
 <img width="1130" height="826" alt="image" src="https://github.com/user-attachments/assets/bcbfce3e-b764-48f1-a3e7-6132815e0f48" />
 
+# Update - 12.11.2025
+
+Boards and components finally arrived! Multimeter testing came out very promising. Soldering soon.
+
+![20251112_221309](https://github.com/user-attachments/assets/8cd81446-0852-407e-aeae-405113e24ca4)
 
 
 
