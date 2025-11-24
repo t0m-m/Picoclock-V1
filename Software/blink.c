@@ -16,9 +16,9 @@
 
 // PINY PRZYCISKOW
 #define BUTTON_PIN 6
-#define BUTTON_PIN 7
-#define BUTTON_PIN 8
-#define BUTTON_PIN 9
+#define BUTTON_PIN2 7
+#define BUTTON_PIN3 8
+#define BUTTON_PIN4 9
 
 // MAX 7221 
 void max7221_send(uint8_t addr, uint8_t data) {   // MAX oczekuje danych, 8 bitow adresu i 8 bitow danych
@@ -42,7 +42,7 @@ bool reserved_addr(uint8_t addr) {                        // Funkcja sprawdza cz
 }
 
 // DS 3231
-void ds3231_set_time(uint8_t *buf); {
+void ds3231_set_time(uint8_t *buf) {
     uint8_t start = 0x00; 
     i2c_write_blocking(i2c1, 0x68, &start, 1, true);
     i2c_write_blocking(i2c1, 0x68, buf, 7, false);
@@ -54,9 +54,10 @@ void ds3231_read_time(uint8_t *buf) {
     i2c_read_blocking(i2c1, 0x68, buf, 7, false);        // Funkcja zczytuje wartości od 0x00 do 0x06, czyli sekundy, minuty, godziny, dzien tygodnia, dzien miesiaca, miesiac, rok 
 }
 
-void ds3231_init() {
-
+int bcd_to_int(uint8_t bcd) {                           // Funkcja ktora zamiaenia BCD na integer
+    return ((bcd >> 4) * 10) + (bcd & 0x0F);            
 }
+
 
 // MAPA SEGMENTOW
 // Segmenty: C DP A F G E D B   (nie wiem co tu sie odjebalo ale tak jest)
@@ -90,29 +91,30 @@ void display_digits_swapped(const int *digits, int count) {
 }
 
 // ZMIENNE CZASU
-int hours = 1;
-int minutes = 16;
-int seconds = 0;
+//int hours = 1;
+//int minutes = 16;
+//int seconds = 0;
 
 // ZMIENNA JASNOSCI
 uint8_t brightness = 0;
 
 // TIMER 1S 
-int64_t tick(alarm_id_t id, void *user_data) {
-    seconds++;
-    if (seconds >= 60) { seconds = 0; minutes++; }
-    if (minutes >= 60) { minutes = 0; hours++; }
-    if (hours > 12) { hours = 01; }
+int64_t tick() {
+    int digits[6];
+    uint8_t buf1[7];
+    int sec, min, hour;
 
-    // konwersja HHMMSS na tablicę cyfr
-    int digits[6] = {
-        hours / 10,
-        hours % 10,
-        minutes / 10,
-        minutes % 10,
-        seconds / 10,
-        seconds % 10
-    };
+    ds3231_read_time(buf1);       // Funkcja zczytuje czas z DSa
+    sec = bcd_to_int(buf1[0]);    
+    min = bcd_to_int(buf1[1]);
+    hour = bcd_to_int(buf1[2]);   // Konwersja z BCD na inty tak aby MAX mogl to zrozumiec
+
+    digits[0] = hour / 10;
+    digits[1] = hour % 10;
+    digits[2] = min / 10;
+    digits[3] = min % 10;
+    digits[4] = sec / 10;
+    digits[5] = sec % 10;
 
     display_digits_swapped(digits, 6);
 
@@ -158,7 +160,6 @@ int main() {                              // DS 3231 oczekuje od nas danych w fo
         {0x25},                           // rok 
     };
 
-    uint8_t time_buf[7];                  // TABLICA Z CZASEM I DATA Z DS3231
     uint8_t kropki = (1 << 1) | (1 << 3); // Wyswietla kropki HH. MM. SS
     stdio_init_all();
     
@@ -181,10 +182,6 @@ int main() {                              // DS 3231 oczekuje od nas danych w fo
 
     // DS 3231 write time
     ds3231_set_time(time_set);
-
-    // DS 3231 read time
-    ds3231_read_time(time_buf);
-
     
     // MAX 7221 init
     max7221_init();
@@ -193,13 +190,13 @@ int main() {                              // DS 3231 oczekuje od nas danych w fo
     init_button();
 
     // Timer 1 sekunda
-    add_alarm_in_ms(1000, tick, NULL, true);
+    add_alarm_in_ms(1000, tick, NULL, true);       // to jest funkcja callback, ktora odswieza sie automatycznie co 1000ms, czyli co sekunde czas sie aktualizuje
 
     while (1) {
         tight_loop_contents();
         max7221_send(2,kropki);
         if (button_pressed()) {
-        update_brightness();
+            update_brightness();
         }
     }
 }
