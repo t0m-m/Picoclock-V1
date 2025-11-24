@@ -2,6 +2,31 @@
 FileName = PCB2.GBR
 AutoAperture = True
 *************************************************************
+Generating : Board Shape
+      File : PCB2.GM2
+
+    Adding Layer      : Board Shape
+
+
+Used DCodes :
+    D63
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 15
+      File : PCB2.GM15
+
+    Adding Layer      : Mechanical 15
+
+
+Used DCodes :
+    D12
+    D64
+    D65
+    D66
+*************************************************************
+
+*************************************************************
 Generating : Top Paste
       File : PCB2.GTP
 
@@ -23,6 +48,79 @@ Used DCodes :
     D21
     D22
     D23
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : PCB2.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : PCB2.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : PCB2.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
 *************************************************************
 
 *************************************************************
@@ -71,80 +169,6 @@ Used DCodes :
     D60
     D61
     D62
-*************************************************************
-
-*************************************************************
-Generating : Top Overlay
-      File : PCB2.GTO
-
-    Adding Layer      : Top Overlay
-
-
-Used DCodes :
-    D10
-    D11
-    D12
-    D13
-*************************************************************
-
-*************************************************************
-Generating : Board Shape
-      File : PCB2.GM2
-
-    Adding Layer      : Board Shape
-
-
-Used DCodes :
-    D63
-*************************************************************
-
-*************************************************************
-Generating : Top Solder
-      File : PCB2.GTS
-
-    Adding Layer      : Top Solder
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D24
-    D25
-    D26
-    D27
-    D28
-    D29
-    D30
-    D31
-    D32
-    D33
-    D34
-    D35
-    D36
-    D37
-    D38
-    D39
-    D40
-    D41
-    D42
-    D43
-    D44
-*************************************************************
-
-*************************************************************
-Generating : Mechanical 15
-      File : PCB2.GM15
-
-    Adding Layer      : Mechanical 15
-
-
-Used DCodes :
-    D12
-    D64
-    D65
-    D66
 *************************************************************
 
 *************************************************************
@@ -207,30 +231,6 @@ Used DCodes :
     D60
     D61
     D62
-*************************************************************
-
-*************************************************************
-Generating : Bottom Solder
-      File : PCB2.GBS
-
-    Adding Layer      : Bottom Solder
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D35
-    D36
-    D37
-    D38
-    D39
-    D40
-    D41
-    D42
-    D43
-    D44
 *************************************************************
 
 *************************************************************
