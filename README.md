@@ -45,5 +45,13 @@ Boards and components finally arrived! Multimeter testing came out very promisin
 
 ![20251112_221309](https://github.com/user-attachments/assets/8cd81446-0852-407e-aeae-405113e24ca4)
 
+# Update 24.11.2025
+
+Unfortunately there has been a mistake in the board files, the pins for the SPI were routed incorrectly. Luckily I have managed to fix the issue with external cables. I have updated the board files to the correct version. Below is the picture of working board. I am working on software, but basic functionality has been implemented.
+
+![20251124_191258](https://github.com/user-attachments/assets/f4faed20-03c7-4bb1-bf51-5ec0636ff762)
+
+https://github.com/user-attachments/assets/9fb4b469-f7aa-4e1a-90d6-b6b4e3de2fa9
+
 
 
