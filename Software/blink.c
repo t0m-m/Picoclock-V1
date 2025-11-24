@@ -42,10 +42,14 @@ bool reserved_addr(uint8_t addr) {                        // Funkcja sprawdza cz
 }
 
 // DS 3231
-void ds3231_set_time();
+void ds3231_set_time(uint8_t *buf); {
+    uint8_t start = 0x00; 
+    i2c_write_blocking(i2c1, 0x68, &start, 1, true);
+    i2c_write_blocking(i2c1, 0x68, buf, 7, false);
+}
 
 void ds3231_read_time(uint8_t *buf) {
-    uint8_t start = 0x00                                 // 0x68 to adres i2c urzadzenia DS3231
+    uint8_t start = 0x00;                                // 0x68 to adres i2c urzadzenia DS3231
     i2c_write_blocking(i2c1, 0x68, &start, 1, true);     // Funkcja ustawia bajt od ktorego chce czytac na 1
     i2c_read_blocking(i2c1, 0x68, buf, 7, false);        // Funkcja zczytuje wartości od 0x00 do 0x06, czyli sekundy, minuty, godziny, dzien tygodnia, dzien miesiaca, miesiac, rok 
 }
@@ -143,9 +147,18 @@ void update_brightness() {
     max7221_send(0x0A, brightness);
 }
 
-int main() {
-    // TABLICA Z CZASEM I DATA Z DS3231
-    uint8_t time_buf[7];
+int main() {                              // DS 3231 oczekuje od nas danych w formacie BCD, czyli np. 23 w dziesietnym = 0x23 w BCD
+    uint8_t time_set[7] = {               // tablica w ktorej ustawiamy pierwotny czas 
+        {0x00},                           // sekundy
+        {0x00},                           // minuty
+        {0x12},                           // godziny
+        {0x01},                           // dzien tygodnia od 1 do 7, na razie ustawiony poniedzialek
+        {0x25},                           // dzien miesiaca
+        {0x11},                           // miesiac, na razie ustawiony listopad
+        {0x25},                           // rok 
+    };
+
+    uint8_t time_buf[7];                  // TABLICA Z CZASEM I DATA Z DS3231
     uint8_t kropki = (1 << 1) | (1 << 3); // Wyswietla kropki HH. MM. SS
     stdio_init_all();
     
@@ -166,6 +179,13 @@ int main() {
     gpio_pull_up(PIN_SDA);                       // Aktywowane pull upy na liniach SDA i SCL 
     gpio_pull_up(PIN_SCL);
 
+    // DS 3231 write time
+    ds3231_set_time(time_set);
+
+    // DS 3231 read time
+    ds3231_read_time(time_buf);
+
+    
     // MAX 7221 init
     max7221_init();
 
