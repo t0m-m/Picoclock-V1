@@ -31,7 +31,7 @@ void max7221_send(uint8_t addr, uint8_t data) {   // MAX oczekuje danych, 8 bito
 void max7221_init() {
     max7221_send(0x09, 0x00);  // decode off
     max7221_send(0x0A, 0x05);  // intensity
-    max7221_send(0x0B, 0x05);  // scan limit = 6
+    max7221_send(0x0B, 0x07);  // scan limit = 6
     max7221_send(0x0C, 0x01);  // normal operation
     max7221_send(0x0F, 0x00);  // display test off
 }
@@ -54,10 +54,22 @@ void ds3231_read_time(uint8_t *buf) {
     i2c_read_blocking(i2c1, 0x68, buf, 7, false);        // Funkcja zczytuje wartości od 0x00 do 0x06, czyli sekundy, minuty, godziny, dzien tygodnia, dzien miesiaca, miesiac, rok 
 }
 
+void ds3231_init() {
+    uint8_t EOSC = 0x0E;
+    uint8_t reg;
+
+    i2c_write_blocking(i2c1, 0x68, &EOSC, 1, true);
+    i2c_read_blocking(i2c1, 0x68, &reg, 1, false);
+
+    reg &= 0b00111111;
+
+    i2c_write_blocking(i2c1, 0x68, &EOSC, 1, true);
+    i2c_write_blocking(i2c1, 0x68, &reg, 1, false);
+}
+
 int bcd_to_int(uint8_t bcd) {                           // Funkcja ktora zamiaenia BCD na integer
     return ((bcd >> 4) * 10) + (bcd & 0x0F);            
 }
-
 
 // MAPA SEGMENTOW
 // Segmenty: C DP A F G E D B   (nie wiem co tu sie odjebalo ale tak jest)
@@ -144,8 +156,8 @@ bool button_pressed() {
 
 // KONTROLA JASNOCI
 void update_brightness() {
-    brightness++;
-    if (brightness > 15) brightness = 0;
+    brightness += 2;
+    if (brightness > 11) brightness = 0;
     max7221_send(0x0A, brightness);
 }
 
@@ -164,7 +176,7 @@ int main() {                              // DS 3231 oczekuje od nas danych w fo
     stdio_init_all();
     
     // SPI1 init
-    spi_init(spi1, 1000000);
+    spi_init(spi1, 4000000);
     gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
     gpio_set_function(PIN_SCK,  GPIO_FUNC_SPI);
 
@@ -173,7 +185,7 @@ int main() {                              // DS 3231 oczekuje od nas danych w fo
     gpio_put(PIN_CS, 1);
 
     // I2C init
-    i2c_init(i2c1, 100 * 1000);                  // Uzywamy i2c1 i baudrate ustawiony na 100kHz
+    i2c_init(i2c1, 400 * 1000);                  // Uzywamy i2c1 i baudrate ustawiony na 100kHz
     gpio_set_function(PIN_SDA, GPIO_FUNC_I2C);   // Przypisanie funkcji odpowiednim pinom
     gpio_set_function(PIN_SCL, GPIO_FUNC_I2C);
 
@@ -181,13 +193,15 @@ int main() {                              // DS 3231 oczekuje od nas danych w fo
     gpio_pull_up(PIN_SCL);
 
     // DS 3231 write time
-    ds3231_set_time(time_set);
+    ds3231_init();
+    //ds3231_set_time(time_set);
     
     // MAX 7221 init
     max7221_init();
 
-    // Button init
+    // Button init5
     init_button();
+    
 
     // Timer 1 sekunda
     add_alarm_in_ms(1000, tick, NULL, true);       // to jest funkcja callback, ktora odswieza sie automatycznie co 1000ms, czyli co sekunde czas sie aktualizuje
